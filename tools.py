@@ -25,6 +25,7 @@ class Polycount:
         return all_edges, sel_edges
      
     #### FACES
+    
     def face_obj(object):
         return len(obj.data.polygons)
     
