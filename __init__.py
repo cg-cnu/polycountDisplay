@@ -1,3 +1,9 @@
+#==================================
+# TODO
+#==================================
+# Position based on the tools menue toggle 
+# 
+
 import bpy, imp, bmesh, blf, bgl
   
 bl_info = { 
@@ -8,18 +14,9 @@ bl_info = {
     "location": "View3D > Properties panel > Poly Count Display", 
     "description": "Shows how many triangles your 3d model would have if its faces were all converted to triangles.", 
     "category": "3D View"
-} 
+}
 
-from polycountDisplay import *
-#imp.reload(tools)
-
-#object = bpy.data.objects['Cube']
-
-#a = Polycount.vert_edit(object)
-
-
-
-#print (a)
+#from polycountDisplay import *
 
 class PolyCountPanel(bpy.types.Panel): 
     bl_label = "Poly Count Display"
@@ -74,6 +71,13 @@ class PolyCountPanel(bpy.types.Panel):
         row.prop(sc, "tri_count_all", text = "")
         row.prop(sc, "tri_count_obj", text = "")
         row.prop(sc, "tri_count_sel", text = "")
+
+def register():
+    bpy.utils.register_class(PolyCountPanel)
+
+def unregister():
+    bpy.utils.unregister_class(PolyCountPanel)
         
-        
+if __name__ == "__main__":
+    register()
         
